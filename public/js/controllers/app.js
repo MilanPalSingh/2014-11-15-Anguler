@@ -1,4 +1,12 @@
 function AppCtrl ($scope) {
+  $scope.setActive = function(type){
+    $scope.destinationsActive='';
+    $scope.flightsActive='';
+    $scope.reservationsActive='';
+
+    $scope[type+'Active'] = 'active';
+  };
+
   $scope.airports = {
     "PDX": {
       "code": "PDX",
@@ -28,16 +36,5 @@ function AppCtrl ($scope) {
       ]
     }
   };
-  $scope.sidebarURL = 'partials/airport.html'
-  $scope.formURL = 'partials/form.html'
-  $scope.currentAirport = null;
-
-  $scope.setAirport = function(code){
-    $scope.currentAirport = $scope.airports[code]; 
-  };
-
-  $scope.editAirport = function(code){
-    $scope.editing = $scope.airports[code];
-  };
-
+  
 };
